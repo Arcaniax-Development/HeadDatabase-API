@@ -51,7 +51,14 @@ tasks.register<Jar>("javadocJar") {
     from(tasks.getByName<Javadoc>("javadoc").destinationDir)
 }
 
+tasks.register<Jar>("sourcesJar") {
+    dependsOn("classes")
+    archiveClassifier.set("sources")
+    from(sourceSets["main"].allSource)
+}
+
 artifacts {
     add("archives", tasks.named("jar"))
     add("archives", tasks.named("javadocJar"))
+    add("archives", tasks.named("sourcesJar"))
 }

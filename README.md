@@ -5,9 +5,10 @@
 ---
 
 Head Database is a fast and user-friendly plugin that allows you to obtain thousands of custom Minecraft skulls that feature unique designs.
-This easy-to-use heads plugin gives you access to creative designing opportunities that overall enhance the quality of your builds, and gives creative freedom to yourself and your players.
+This easy-to-use heads plugin gives you access to creative designing opportunities that overall enhances the quality of your builds, and gives creative freedom to yourself and your players.
 
 This is the API repository for HeadDatabase. This is **not** HeadDatabase.
+If you are looking for the plugin HeadDatabase, get it [from spigot](https://www.spigotmc.org/resources/14280/).
 
 ## Links
 

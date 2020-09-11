@@ -1,3 +1,21 @@
+#You can change your language here.
+#Supported languages can be found in the texts folder.
+locale: "en_US"
+
+# put a cooldown on getting heads
+cooldown-heads: false
+cooldown-time: 3
+
+# automatically remove invalid custom heads (HD heads) from inventories
+# recommended for creative servers!
+remove-invalid-heads: false
+
+# toggle for keeping the category on heads.
+keep-category: false
+
+# toggle for showing heads in search which you do not have permission to buy
+show-no-permission-search: false
+
 #Disable some heads here
 #They only will be removed on a database update or a server restart/reload
 disabled-heads:
@@ -41,27 +59,34 @@ custom-command: "menu"
 # Featured tags
 main-menu-featured-tags-slots: "37,38,39,40,41,42,43"
 # [title]:[id,id...]:[search]:[startMonth-startDay]:[endMonth-endDay]
+# title can contain a lang formatted message.
 featured-tags:
-  - "&eHalloween:13779,12750,13584,12581:Halloween:10-20:11-7"
-  - "&bChristmas:1594,3158,2910:Christmas:11-24:12-31"
-  - "&6Happy new year:4446,4447,4448:Firework:1-1:1-7"
-  - "&cValentine's Day:14696,14691,14672,14687,14673:Valentine:2-1:2-21"
-  - "&cHappy 4th of July:890:Firework:7-3:7-5"
-  - "&fEaster:726:Easter:3-20:4-30"
+  - "event.halloween:13779,12750,13584,12581:Halloween:10-20:11-7"
+  - "event.christmas:1594,3158,2910:Christmas:11-24:12-31"
+  - "event.newYear:4446,4447,4448:Firework:1-1:1-7"
+  - "event.valentines:14696,14691,14672,14687,14673:Valentine:2-1:2-21"
+  - "event.4thOfJuly:890:Firework:7-3:7-5"
+  - "event.easter:726:Easter:3-31:4-30"
+
 
 # seasons
-  - "&fWinter:3295,1697:Winter:10-25:12-31"
-  - "&fWinter:3295,1697:Winter:1-1:3-31"
-  
-  - "&6Summer:573:summer:6-15:9-30"
-  
+  - "event.winter:3295,1697:Winter:10-25:12-31"
+  - "event.winter:3295,1697:Winter:1-1:3-31"
+
+  - "event.summer:573:summer:6-15:9-30"
+
 # fun special days
-  - "&3May the 4th be with you:14018,11622,8108,14028:Star wars:5-1:5-8"
-  - "&3Pi day:13603,45,57,46:Pie:3-13:3-15"
-  - "&6Pokémon Day:13797,8642,1644,2457:Pokemon:2-26:2-28"
+  - "event.MayThe4th:14018,11622,8108,14028:Star wars:5-1:5-8"
+  - "event.piDay:13603,45,57,46:Pie:3-13:3-15"
+  - "event.pokemon:13797,8642,1644,2457:Pokemon:2-26:2-28"
+  - "event.StPatricksDay:14225,3034:St Patrick's Day:3-16:3-18"
+  - "event.dayOfTheDead:23693,23724,23725:Day of the Dead:11-1:11-3"
+  - "event.pirate:4053,11331,2711:Pirate:9-18:9-20"
+  - "event.taco:28,20769:Taco:10-3:10-5"
+  - "event.mario:7287,23510,20124:Mario:3-9:3-11"
 
 # all year round
-  - "&aRecently added:11504:recent:1-1:12-31"
+  - "messages.recentHeads:11504:recent:1-1:12-31"
 
 # Toggle for using a arrow (only back and next) instead of the paper web based one
 # Also moves the back to main menu to the middle and removes the compass
@@ -93,7 +118,7 @@ suggest-item: "writeable_book"
 search-item: "compass"
 command-item: "barrier"
 background-item: "stained_glass_pane:8"
-background-border-item: "stained_glass_pane:7" 
+background-border-item: "stained_glass_pane:7"
 loading-head-item: "skull_item:3"
 
 
@@ -110,68 +135,10 @@ close-inventory-on-successful-purchase: false
 return-name-on-pickup: true
 
 # Experimental async head loading
+# Can be disabled in 1.13 as heads no longer lag out clients
 experimental-loading: true
 loadHeadAmount: 9
 loadTimeDelay: 10.0
-
-#Change the messages here, you can use & to use colors.
-#buyMessage must contain %Item% and %price%
-#database can contain "%count%"
-messages:
-   prefix: "&6HeadDB> "
-   database: "&4Head DB&8 %count% heads"
-   search: "&4Head Search&8 %count% heads"
-   page: "Page"
-   price: "&aPrice: &2"
-   heads: "heads"
-   head: "head"
-   other: "other"
-   loading: "&c..Loading.."
-   recentHeads: "&aRecently added"
-   noPermissionToBuyLore: "&cNo Permission"
-   searchCommand: "&7/hdb search [input]"
-   pheadCommand: "/phead [name]"
-   loreColor: "&8"
-   headItemColor: "&9"
-   categoryColor: "&c&l"
-   categoryLoreColor: "&e"
-   
-   noPermission: "&cYou are not allowed to do that!"
-   notEnoughMoney: "&cYou don't have enough money to do this!"
-   notEnoughSpace: "&cYou don't have enough space in your inventory!"
-   buyMessage: "&aYou bought %item% &afor &2%price%"
-   backToMenu: "&cBack to menu"
-   lookingFor: "&eLooking for"
-   clickToSearch: "&a&n&lClick here&b to search for heads"
-   noHeadsFound: "&eNo heads found, try again!"
-   moreSpecific: "&ePlease be more specific!"
-   headsFound: "&eHeads found!"
-   searchForHeads: "&cSearch for heads"
-   pluginInfo: "&cPlugin info"
-   pluginSuggest: "&cYou can suggest heads here"
-   pluginSuggestLore: "&7Please check the database first!"
-   chatSearch: "&bType in your search input"
-   databaseStillLoading: "&cDatabase is still loading, try again in a second!"
-   customCommandItemName: "&cBack to main menu"
-
-   category-names:
-      alphabet: "Alphabet"
-      animals: "Animals"
-      blocks: "Blocks"
-      decoration: "Decoration"
-      food_drinks: "Food and Drinks"
-      humans: "Humans"
-      humanoid: "Humanoid"
-      miscellaneous: "Miscellaneous"
-      monsters: "Monsters"
-      plants: "Plants"
-      custom: "Custom Server Heads"
-      custom2: "Custom Server Heads 2"
-      custom3: "Custom Server Heads 3"
-      custom4: "Custom Server Heads 4"
-      custom5: "Custom Server Heads 5"
-      online_players: "Online Players"
-
 
 #Enable Economy here
 #If the price is 0 it won't show up!
@@ -180,8 +147,11 @@ Economy-Currency: "$"
 #Type can be "item", "currency" or "playerpoints"
 Economy-Type: currency
 Economy-Item: gold_ingot
-#if ItemName equals "" then it accepts the item without any name
+#if ItemName equals "" then it ignores the name of the item
 Economy-ItemName: ""
+#if ItemLore equals "" then it ignores the lore
+#else ItemLore only checks the first line of the lore
+Economy-ItemLore: ""
 
 alphabet-price: 100
 animals-price: 100
@@ -219,6 +189,11 @@ custom3-id: 242
 custom4-id: 242
 custom5-id: 242
 online_players-id: 2669
+
+# Send custom heads to public database
+# Heads added to your own custom categories might get added to the database.
+send-heads-to-database: true
+author-name: "HDB-default"
 
 # format= name: "base64"
 # do not use any ,'s in your name !

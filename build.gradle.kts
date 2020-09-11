@@ -33,3 +33,25 @@ configure<LicenseExtension> {
     include("**/*.java")
 
 }
+
+tasks.withType<Javadoc>().configureEach {
+    (options as StandardJavadocDocletOptions).apply {
+        addStringOption("Xdoclint:none", "-quiet")
+        tags(
+                "apiNote:a:API Note:",
+                "implSpec:a:Implementation Requirements:",
+                "implNote:a:Implementation Note:"
+        )
+    }
+}
+
+tasks.register<Jar>("javadocJar") {
+    dependsOn("javadoc")
+    archiveClassifier.set("javadoc")
+    from(tasks.getByName<Javadoc>("javadoc").destinationDir)
+}
+
+artifacts {
+    add("archives", tasks.named("jar"))
+    add("archives", tasks.named("javadocJar"))
+}

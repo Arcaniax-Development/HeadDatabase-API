@@ -46,18 +46,35 @@ public class Head {
     long number = 0L;
     private double price = -1.0D;
 
+    /**
+     *
+     * @return Head price
+     */
     public double getPrice() {
         return this.price;
     }
 
+    /**
+     *
+     * @param price Set the price
+     */
     public void setPrice(Double price) {
         this.price = price;
     }
 
+    /**
+     *
+     * @param input input
+     * @return output
+     */
     public boolean search(String input) {
         return false;
     }
 
+    /**
+     *
+     * @return Head
+     */
     public ItemStack getHead() {
         return null;
     }

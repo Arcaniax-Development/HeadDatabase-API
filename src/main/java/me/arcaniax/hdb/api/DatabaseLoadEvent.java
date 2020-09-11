@@ -37,7 +37,7 @@ public class DatabaseLoadEvent extends Event {
     /**
      * Whether or not the database is loaded. Register your events after the database is loaded.
      *
-     * @param amount Amount of heads
+     * @param amount Amount of seconds HeadDatabase took to load
      */
     public DatabaseLoadEvent(int amount) {
         this.amount = amount;
@@ -48,9 +48,9 @@ public class DatabaseLoadEvent extends Event {
     }
 
     /**
-     * Get the amount of heads loaded
+     * Get the total amount of heads loaded
      *
-     * @return Amount of heads loaded
+     * @return Total amount of heads loaded
      */
     public int getAmount() {
         return this.amount;

@@ -51,7 +51,7 @@ public class HeadDatabaseAPI {
     /**
      * Whether or not a head is a head
      *
-     * @param ID Head ID
+     * @param ID String ID
      * @return false
      */
     public boolean isHead(String ID) {
@@ -61,7 +61,7 @@ public class HeadDatabaseAPI {
     /**
      * Get an Item has head
      *
-     * @param ID Head ID
+     * @param ID String ID
      * @return null
      */
     public ItemStack getItemHead(String ID) {
@@ -105,7 +105,7 @@ public class HeadDatabaseAPI {
     }
 
     /**
-     * @param id The head ID
+     * @param id String
      * @return null
      */
     public CategoryEnum getCategory(String id) {
@@ -114,7 +114,7 @@ public class HeadDatabaseAPI {
 
     /**
      * @param block The block
-     * @param ID    The head ID
+     * @param ID    String ID
      * @return false
      */
     public boolean setBlockSkin(Block block, String ID) {
@@ -123,7 +123,7 @@ public class HeadDatabaseAPI {
 
     /**
      * @param category {@link CategoryEnum}
-     * @param name     head name
+     * @param name     String name
      * @param uuid     head uuid
      * @return null
      */

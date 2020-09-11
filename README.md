@@ -54,7 +54,7 @@ dependencies {
 <!-- HeadDatabase-API -->
 <dependency>
     <groupId>me.arcaniax</groupId>
-    <artifactId>HeadDatanase-API</artifactId>
+    <artifactId>HeadDatabase-API</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```

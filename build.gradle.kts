@@ -23,7 +23,7 @@ repositories {
 }
 
 dependencies {
-    "compileOnly"("org.spigotmc:spigot-api:1.16.2-R0.1-SNAPSHOT")
+    "compileOnly"("org.spigotmc:spigot-api:1.16.3-R0.1-SNAPSHOT")
 }
 
 version = "1.0.0"
@@ -31,6 +31,7 @@ version = "1.0.0"
 configure<LicenseExtension> {
     header = rootProject.file("HEADER")
     include("**/*.java")
+    newLine = false
 
 }
 

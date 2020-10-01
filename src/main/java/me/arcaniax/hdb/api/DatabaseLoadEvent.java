@@ -23,7 +23,6 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-
 package me.arcaniax.hdb.api;
 
 import org.bukkit.event.Event;
@@ -35,7 +34,8 @@ public class DatabaseLoadEvent extends Event {
     private int amount = 0;
 
     /**
-     * Whether or not the database is loaded. Register your events after the database is loaded.
+     * Fired after the database is loaded. You must wait for this to be done.
+     * Events relying on HeadDatabase must be registered afterwards.
      *
      * @param amount Amount of seconds HeadDatabase took to load
      */
@@ -48,9 +48,7 @@ public class DatabaseLoadEvent extends Event {
     }
 
     /**
-     * Get the total amount of heads loaded
-     *
-     * @return Total amount of heads loaded
+     * @return Amount of seconds HeadDatabase took to load
      */
     public int getAmount() {
         return this.amount;

@@ -23,12 +23,9 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-
 package me.arcaniax.hdb.enums;
 
 public enum VanillaHeadTypeEnum {
-    SKELETON, WITHER_SKELETON, ZOMBIE, CREEPER, ENDER_DRAGON, STEVE;
+    SKELETON, WITHER_SKELETON, ZOMBIE, CREEPER, ENDER_DRAGON, STEVE
 
-    VanillaHeadTypeEnum() {
-    }
 }

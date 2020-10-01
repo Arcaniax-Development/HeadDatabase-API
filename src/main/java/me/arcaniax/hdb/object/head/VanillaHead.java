@@ -23,7 +23,6 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-
 package me.arcaniax.hdb.object.head;
 
 import org.bukkit.Material;
@@ -33,6 +32,10 @@ public class VanillaHead extends Head {
     Material material;
     short data = -1;
 
+    /**
+     *
+     * @return the head from an ItemStack
+     */
     public ItemStack getHead() {
         return null;
     }

@@ -23,7 +23,6 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-
 package me.arcaniax.hdb.object.head;
 
 import me.arcaniax.hdb.enums.CategoryEnum;
@@ -47,15 +46,13 @@ public class Head {
     private double price = -1.0D;
 
     /**
-     *
-     * @return Head price
+     * @return The head price
      */
     public double getPrice() {
         return this.price;
     }
 
     /**
-     *
      * @param price Set the price
      */
     public void setPrice(Double price) {
@@ -63,16 +60,14 @@ public class Head {
     }
 
     /**
-     *
-     * @param input input
-     * @return output
+     * @param input The search string
+     * @return The search output
      */
     public boolean search(String input) {
         return false;
     }
 
     /**
-     *
      * @return Head
      */
     public ItemStack getHead() {

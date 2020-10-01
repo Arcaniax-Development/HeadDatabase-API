@@ -54,4 +54,3 @@ for short (20 lines or less) text blobs, or a paste service for large blobs -->
 - [] I made sure there are no duplicates of this report [(Use Search)](https://github.com/Brennian/HeadDatabase-API/issues?utf8=%E2%9C%93&q=is%3Aissue)
 - [] I made sure I am using an up-to-date version of HeadDatabase & HeadDatabaseAPI
 - [] I made sure the bug/error is not caused by any other plugin
-- [x] I didn't read but checked everything above.

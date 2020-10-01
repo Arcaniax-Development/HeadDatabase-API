@@ -92,3 +92,7 @@ public class Main extends JavaPlugin implements Listener {
     }
 }
 ```
+### Tips:
+
+- Don't forget to add `HeadDatabase` to `depend` or `softdepend` section of your `plugin.yml`
+- Listen to `DatabaseLoadEvent` and register your events afterwards. The event is fired once HeadDatabase is loaded successfully.

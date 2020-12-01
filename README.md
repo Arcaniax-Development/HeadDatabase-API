@@ -14,7 +14,7 @@ If you are looking for the plugin HeadDatabase, get it [from spigot](https://www
 
 * [JavaDocs](https://ci.athion.net/job/HeadDatabase-API/javadoc/)
 * [Discord](https://discord.gg/jpRVrjd)
-* [Issues](https://github.com/Brennian/HeadDatabase-API/issues)
+* [Issues](https://github.com/Arcaniax-Development/HeadDatabase-API/issues)
 
 ## How to use the API
 

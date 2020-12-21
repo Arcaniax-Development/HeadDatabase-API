@@ -28,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    implementation("me.arcaniax:HeadDatabase-API:1.0.0")
+    implementation("me.arcaniax:HeadDatabase-API:1.1.0")
 }
 ```
 
@@ -44,7 +44,7 @@ dependencies {
 <dependency>
     <groupId>me.arcaniax</groupId>
     <artifactId>HeadDatabase-API</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <scope>provided</scope>
 </dependency>
 ```

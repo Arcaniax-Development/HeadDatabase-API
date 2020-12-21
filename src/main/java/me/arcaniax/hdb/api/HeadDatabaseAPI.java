@@ -25,10 +25,18 @@
  */
 package me.arcaniax.hdb.api;
 
+import com.cryptomorin.xseries.XMaterial;
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.properties.Property;
+import me.arcaniax.hdb.Main;
 import me.arcaniax.hdb.enums.CategoryEnum;
+import me.arcaniax.hdb.object.Category;
 import me.arcaniax.hdb.object.head.Head;
+import me.arcaniax.hdb.util.HeadUtil;
 import org.bukkit.block.Block;
+import org.bukkit.block.Skull;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,115 +44,199 @@ import java.util.UUID;
 
 public class HeadDatabaseAPI {
 
-    private String prefix = "api";
-
-    /**
-     * The prefix ID
-     *
-     * @param prefix Prefix ID
-     */
-    public void setPrefixID(String prefix) {
-        this.prefix = prefix;
+    public HeadDatabaseAPI() {
     }
 
     /**
-     * Whether or not a head is a head
+     * Sets the prefix ID to be used by the API for added heads
      *
-     * @param ID String ID
-     * @return false
+     * @param prefix The prefix to use
+     */
+    public void setPrefixID(String prefix) {}
+
+    /**
+     * Checks whether or not a head exists with the given ID
+     *
+     * @param ID The ID to check
+     * @return true if a head exists with the given ID, otherwise false
      */
     public boolean isHead(String ID) {
         return false;
     }
 
     /**
-     * Get an Item has head
+     * Checks if a Block is a decorative (non-player) head
      *
-     * @param ID String ID
-     * @return null
+     * @param block The block to check
+     * @return true if the block is a decorative head, otherwise false
      */
-    public ItemStack getItemHead(String ID) {
+    public boolean isDecorativeHead(Block block) {
+        return false;
+    }
+
+    /**
+     * Checks if an ItemStack is a decorative (non-player) head
+     *
+     * @param itemStack The item to check
+     * @return true if the item is a decorative head, otherwise false
+     */
+    public boolean isDecorativeHead(ItemStack itemStack) {
+        return false;
+    }
+
+    /**
+     * Gets an ItemStack of a head with the given ID
+     *
+     * @param id The ID of the head to get
+     * @return An ItemStack of a head with the given ID, or null if one does not exist
+     */
+    public ItemStack getItemHead(String id) {
         return null;
     }
 
     /**
-     * Get an Item ID
+     * Gets an ItemStack of a head from a player skull Block
      *
-     * @param is ItemStack
-     * @return null
+     * @param block The ID of the head to get
+     * @return An ItemStack of a head from the given block, or null if the block is not a head
      */
-    public String getItemID(ItemStack is) {
+    public ItemStack getItemHead(Block block) {
         return null;
     }
 
     /**
-     * @param category {@link CategoryEnum}
-     * @param head     Head
-     * @return false
+     * Gets the head ID of an ItemStack
+     *
+     * @param itemStack The item to get the ID from
+     * @return The head ID of the item, or null if the item is not a head or is not in the database
+     */
+    public String getItemID(ItemStack itemStack) {
+        return null;
+    }
+
+    /**
+     * Gets the head ID of a Block
+     *
+     * @param block The block to get the ID from
+     * @return The head ID of the block, or null if the block is not a head or is not in the database
+     */
+    public String getBlockID(Block block) {
+        return null;
+    }
+
+    /**
+     * Gets the base64 string from a head ID
+     *
+     * @param id The ID of the head
+     * @return The base64 String from a head ID, or null if one does not exist
+     */
+    public String getBase64(String id) {
+        return null;
+    }
+
+    /**
+     * Gets the base64 String from an ItemStack
+     *
+     * @param itemStack The ItemStack
+     * @return The base64 String from an ItemStack, or null if one does not exist
+     */
+    public String getBase64(ItemStack itemStack) {
+        return null;
+    }
+
+    /**
+     * Gets the base64 String from a Block
+     *
+     * @param block The Block to get the base64 string from
+     * @return The base64 String from the Block, or null if the block is not a head or does not have a base64 String
+     */
+    public String getBase64(Block block) {
+        return null;
+    }
+
+    /**
+     * Adds a new Head to the database
+     *
+     * @param category The category to add the head to
+     * @param head     The head to add
+     * @return true if the head was successfully added, otherwise false
      */
     public boolean addHead(CategoryEnum category, Head head) {
         return false;
     }
 
     /**
-     * @param category {@link CategoryEnum}
-     * @return The heads as ArrayList
+     * Gets a List of all Heads in a given category in the database
+     *
+     * @param category The category to check
+     * @return A list of heads in the given category, or an empty list if none
      */
     public List<Head> getHeads(CategoryEnum category) {
-        return new ArrayList();
+        return new ArrayList<>();
     }
 
     /**
-     * Get a random head
-     *
-     * @return null
+     * @return a random head from the database as an ItemStack
      */
     public ItemStack getRandomHead() {
         return null;
     }
 
     /**
-     * @param id String
-     * @return null
+     * Gets the Category that a head ID is part of
+     *
+     * @param id The ID of the head
+     * @return The category that the head ID belongs to, or null if not found
      */
     public CategoryEnum getCategory(String id) {
         return null;
     }
 
     /**
-     * @param block The block
-     * @param ID    String ID
-     * @return false
+     * Sets the texture of a player head block to the given head ID
+     *
+     * @param block The block to set the texture of
+     * @param id    The ID of the head to set the texture to
+     * @return true if the block texture was successfully applied, otherwise false
      */
-    public boolean setBlockSkin(Block block, String ID) {
+    public boolean setBlockSkin(Block block, String id) {
         return false;
     }
 
     /**
-     * @param category {@link CategoryEnum}
-     * @param name     String name
-     * @param uuid     head uuid
-     * @return null
+     * Adds a head to the database
+     *
+     * @param category The category to add to
+     * @param name     The name of the head
+     * @param uuid     The UUID owner of the head
+     * @return The ID of the head that was added, or null if unable to add
      */
     public String addHead(CategoryEnum category, String name, UUID uuid) {
         return null;
     }
 
     /**
-     * @param category {@link CategoryEnum}
-     * @param name     head name
-     * @param base64   the head base64 code
-     * @return null
+     * Adds a head to the database
+     *
+     * @param category The category to add to
+     * @param name     The name of the head
+     * @param base64   The base64 texture string of the head
+     * @return The ID of the head that was added, or null if unable to add
      */
     public String addHead(CategoryEnum category, String name, String base64) {
         return null;
     }
 
     /**
-     * @param id the head id
-     * @return false
+     * Removes a head from the database
+     *
+     * @param id The ID of the head to remove
+     * @return true if the head was removed, or false if a head with the ID was not found
      */
     public boolean removeHead(String id) {
         return false;
     }
+
+}
+
 }

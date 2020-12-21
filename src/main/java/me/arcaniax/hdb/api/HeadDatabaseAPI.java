@@ -25,27 +25,12 @@
  */
 package me.arcaniax.hdb.api;
 
-import com.cryptomorin.xseries.XMaterial;
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.properties.Property;
-import me.arcaniax.hdb.Main;
 import me.arcaniax.hdb.enums.CategoryEnum;
-import me.arcaniax.hdb.object.Category;
 import me.arcaniax.hdb.object.head.Head;
-import me.arcaniax.hdb.util.HeadUtil;
 import org.bukkit.block.Block;
-import org.bukkit.block.Skull;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.SkullMeta;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
 
 public class HeadDatabaseAPI {
-
-    public HeadDatabaseAPI() {
-    }
 
     /**
      * Sets the prefix ID to be used by the API for added heads

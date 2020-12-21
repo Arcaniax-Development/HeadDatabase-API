@@ -18,18 +18,7 @@ If you are looking for the plugin HeadDatabase, get it [from spigot](https://www
 
 ## How to use the API
 
-### Importing via Gradle (Groovy)
-```groovy
-repositories {
-    maven { url = "https://mvn.intellectualsites.com/content/repositories/thirdparty/" } // HeadDatabase-API
-}
-
-dependencies {
-    implementation("me.arcaniax:HeadDatabase-API:1.0.0") // HeadDatabase-API
-}
-```
-
-### Importing via Gradle (Kotlin)
+### Importing via Gradle
 ```kotlin
 repositories {
     maven {
@@ -39,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    "implementation"("me.arcaniax:HeadDatabase-API:1.0.0")
+    implementation("me.arcaniax:HeadDatabase-API:1.0.0")
 }
 ```
 
@@ -47,7 +36,7 @@ dependencies {
 ```xml
 <!-- HeadDatabase-API -->
 <repository>
-    <id>headdatabase-api</id>
+    <id>HeadDatabase-API</id>
     <url>https://mvn.intellectualsites.com/content/repositories/thirdparty/</url>
 </repository>
 

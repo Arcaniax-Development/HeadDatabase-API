@@ -56,6 +56,7 @@ dependencies {
     <groupId>me.arcaniax</groupId>
     <artifactId>HeadDatabase-API</artifactId>
     <version>1.0.0</version>
+    <scope>provided</scope>
 </dependency>
 ```
 

@@ -28,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    implementation("me.arcaniax:HeadDatabase-API:1.1.0")
+    compileOnly("me.arcaniax:HeadDatabase-API:1.1.0")
 }
 ```
 

@@ -39,7 +39,7 @@ public class Head {
     public String uuid;
     public CategoryEnum c;
     public boolean recent = false;
-    public Collection<String> tags = new ArrayList();
+    public Collection<String> tags = new ArrayList<>();
     public boolean isCustom = false;
     long ID = 0L;
     long number = 0L;

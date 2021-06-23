@@ -1,15 +1,16 @@
-import net.minecrell.gradle.licenser.LicenseExtension
+import org.cadixdev.gradle.licenser.Licenser
+import org.cadixdev.gradle.licenser.LicenseExtension
 
 plugins {
     id("java")
     id("java-library")
     id("maven-publish")
-    id("net.minecrell.licenser") version "0.4.1"
+    id("org.cadixdev.licenser") version "0.6.1"
 }
 
-configure<JavaPluginConvention> {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = sourceCompatibility
+the<JavaPluginExtension>().toolchain {
+    languageVersion.set(JavaLanguageVersion.of(8))
+    vendor.set(JvmVendorSpec.ADOPTOPENJDK)
 }
 
 group = "me.arcaniax"
@@ -28,9 +29,9 @@ dependencies {
 }
 
 configure<LicenseExtension> {
-    header = rootProject.file("HEADER")
+    header(rootProject.file("HEADER"))
     include("**/*.java")
-    newLine = false
+    newLine.set(false)
 }
 
 val javadocDir = rootDir.resolve("docs").resolve("javadoc").resolve(project.name)

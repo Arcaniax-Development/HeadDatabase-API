@@ -12,7 +12,6 @@ If you are looking for the plugin HeadDatabase, get it [from spigot](https://www
 
 ## Links
 
-* [JavaDocs](https://ci.athion.net/job/HeadDatabase-API/javadoc/)
 * [Discord](https://discord.gg/jpRVrjd)
 * [Issues](https://github.com/Arcaniax-Development/HeadDatabase-API/issues)
 
@@ -64,7 +63,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin implements Listener {
+public class HeadDatabaseAPIPlugin extends JavaPlugin implements Listener {
 
     public void onEnable() {
         this.getServer().getPluginManager().registerEvents(this, this);

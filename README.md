@@ -22,7 +22,7 @@ If you are looking for the plugin HeadDatabase, get it [from spigot](https://www
 repositories {
     maven {
         name = "HeadDatabase-API"
-        url = uri("https://mvn.intellectualsites.com/content/repositories/thirdparty/")
+        url = uri("https://mvn.intellectualsites.com/content/groups/public/")
     }
 }
 
@@ -36,7 +36,7 @@ dependencies {
 <!-- HeadDatabase-API -->
 <repository>
     <id>HeadDatabase-API</id>
-    <url>https://mvn.intellectualsites.com/content/repositories/thirdparty/</url>
+    <url>https://mvn.intellectualsites.com/content/groups/public/</url>
 </repository>
 
 <!-- HeadDatabase-API -->

@@ -10,7 +10,6 @@ plugins {
 
 the<JavaPluginExtension>().toolchain {
     languageVersion.set(JavaLanguageVersion.of(8))
-    vendor.set(JvmVendorSpec.ADOPTOPENJDK)
 }
 
 group = "me.arcaniax"
@@ -25,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    compileOnlyApi("org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT")
+    compileOnlyApi("org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT")
 }
 
 configure<LicenseExtension> {
@@ -34,7 +33,7 @@ configure<LicenseExtension> {
     newLine.set(false)
 }
 
-val javadocDir = rootDir.resolve("docs").resolve("javadoc").resolve(project.name)
+val javadocDir = rootDir.resolve("docs").resolve("javadoc")
 tasks {
     val assembleTargetDir = create<Copy>("assembleTargetDirectory") {
         destinationDir = rootDir.resolve("target")

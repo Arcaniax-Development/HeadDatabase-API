@@ -44,7 +44,7 @@ public class HeadDatabaseAPI {
     public void setPrefixID(String prefix) {}
 
     /**
-     * Checks whether or not a head exists with the given ID
+     * Checks whether a head exists with the given ID
      *
      * @param ID The ID to check
      * @return true if a head exists with the given ID, otherwise false

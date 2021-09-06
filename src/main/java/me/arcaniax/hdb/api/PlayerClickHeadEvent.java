@@ -96,7 +96,7 @@ public class PlayerClickHeadEvent extends Event {
     }
 
     /**
-     * @return whether or not economy is in use
+     * @return whether economy is in use
      */
     public boolean isEconomy() {
         return this.economy;
@@ -117,7 +117,7 @@ public class PlayerClickHeadEvent extends Event {
     }
 
     /**
-     * @return Whether or not something is cancelled
+     * @return Whether something is cancelled
      */
     public boolean isCancelled() {
         return this.isCancelled;

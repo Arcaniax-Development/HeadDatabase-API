@@ -1,30 +1,46 @@
-import org.cadixdev.gradle.licenser.Licenser
 import org.cadixdev.gradle.licenser.LicenseExtension
 
 plugins {
-    id("java")
-    id("java-library")
-    id("maven-publish")
+    java
+    `java-library`
+    `maven-publish`
+    signing
+
     id("org.cadixdev.licenser") version "0.6.1"
 }
 
-the<JavaPluginExtension>().toolchain {
-    languageVersion.set(JavaLanguageVersion.of(8))
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(16))
 }
 
-group = "me.arcaniax"
-version = "1.2.1-SNAPSHOT"
+tasks.compileJava.configure {
+    options.release.set(8)
+}
+
+configurations.all {
+    attributes.attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 16)
+}
+
+group = "com.arcaniax"
+version = "1.3.0"
+
+var versuffix by extra("SNAPSHOT")
+version = if (!project.hasProperty("release")) {
+    String.format("%s-%s", project.version, versuffix)
+} else {
+    String.format(project.version as String)
+}
 
 repositories {
     mavenCentral()
     maven {
-        name = "Spigot"
-        url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots")
+        name = "PaperMC"
+        url = uri("https://papermc.io/repo/repository/maven-public/")
     }
 }
 
 dependencies {
-    compileOnlyApi("org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT")
+    compileOnlyApi("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
 }
 
 configure<LicenseExtension> {
@@ -33,23 +49,7 @@ configure<LicenseExtension> {
     newLine.set(false)
 }
 
-val javadocDir = rootDir.resolve("docs").resolve("javadoc")
 tasks {
-    val assembleTargetDir = create<Copy>("assembleTargetDirectory") {
-        destinationDir = rootDir.resolve("target")
-        into(destinationDir)
-        from(withType<Jar>())
-    }
-    named("build") {
-        dependsOn(assembleTargetDir)
-    }
-
-    named<Delete>("clean") {
-        doFirst {
-            rootDir.resolve("target").deleteRecursively()
-            javadocDir.deleteRecursively()
-        }
-    }
 
     compileJava {
         options.compilerArgs.addAll(arrayOf("-Xmaxerrs", "1000"))
@@ -68,7 +68,7 @@ tasks {
             "implSpec:a:Implementation Requirements:",
             "implNote:a:Implementation Note:"
         )
-        opt.destinationDirectory = javadocDir
+        opt.links("https://papermc.io/javadocs/paper/1.17/")
     }
 }
 
@@ -77,12 +77,31 @@ java {
     withJavadocJar()
 }
 
+signing {
+    if (!version.toString().endsWith("-SNAPSHOT")) {
+        signing.isRequired
+        sign(publishing.publications)
+    }
+}
+
 publishing {
     publications {
         create<MavenPublication>("maven") {
             from(components["java"])
 
             pom {
+
+                name.set(project.name + " " + project.version)
+                description.set("The API for Head Database, a Minecraft plugin that allows you to obtain thousands of custom Minecraft skulls that feature unique designs.")
+                url.set("https://github.com/Arcaniax-Development/HeadDatabase-API")
+
+                licenses {
+                    license {
+                        name.set("GNU General Public License, Version 3.0")
+                        url.set("https://www.gnu.org/licenses/gpl-3.0.html")
+                        distribution.set("repo")
+                    }
+                }
 
                 developers {
                     developer {
@@ -96,6 +115,11 @@ publishing {
                     connection.set("scm:https://Arcaniax-Development@github.com/Arcaniax-Development/HeadDatabase-API.git")
                     developerConnection.set("scm:git://github.com/Arcaniax-Development/HeadDatabase-API.git")
                 }
+
+                issueManagement {
+                    system.set("GitHub")
+                    url.set("https://github.com/Arcaniax-Development/HeadDatabase-API/issues")
+                }
             }
         }
     }
@@ -106,11 +130,13 @@ publishing {
         val nexusPassword: String? by project
         if (nexusUsername != null && nexusPassword != null) {
             maven {
-                val thirdParty = "https://mvn.intellectualsites.com/content/repositories/thirdparty/"
-                val snapshotRepositoryUrl = "https://mvn.intellectualsites.com/content/repositories/snapshots/"
+                val releasesRepositoryUrl =
+                    "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+                val snapshotRepositoryUrl =
+                    "https://s01.oss.sonatype.org/content/repositories/snapshots/"
                 url = uri(
                     if (version.toString().endsWith("-SNAPSHOT")) snapshotRepositoryUrl
-                    else thirdParty
+                    else releasesRepositoryUrl
                 )
 
                 credentials {

@@ -14,36 +14,29 @@ If you are looking for the plugin HeadDatabase, get it [from spigot](https://www
 
 * [Discord](https://discord.gg/jpRVrjd)
 * [Issues](https://github.com/Arcaniax-Development/HeadDatabase-API/issues)
+* [JavaDocs](https://javadoc.io/doc/com.arcaniax/HeadDatabase-API)
 
 ## How to use the API
+Releases are published to the central repository, snapshots are published to S01 OSS Sonatype.
 
-### Importing via Gradle
+### Gradle
 ```kotlin
 repositories {
-    maven {
-        name = "HeadDatabase-API"
-        url = uri("https://mvn.intellectualsites.com/content/groups/public/")
-    }
+    mavenCentral()
 }
 
 dependencies {
-    compileOnly("me.arcaniax:HeadDatabase-API:1.2.0")
+    compileOnly("com.arcaniax:HeadDatabase-API:1.3.0")
 }
 ```
 
-### Importing via Maven
+### Maven
 ```xml
 <!-- HeadDatabase-API -->
-<repository>
-    <id>HeadDatabase-API</id>
-    <url>https://mvn.intellectualsites.com/content/groups/public/</url>
-</repository>
-
-<!-- HeadDatabase-API -->
 <dependency>
-    <groupId>me.arcaniax</groupId>
+    <groupId>com.arcaniax</groupId>
     <artifactId>HeadDatabase-API</artifactId>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
     <scope>provided</scope>
 </dependency>
 ```

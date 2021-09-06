@@ -22,7 +22,7 @@ configurations.all {
 }
 
 group = "com.arcaniax"
-version = "1.3.0"
+version = "1.3.1"
 
 var versuffix by extra("SNAPSHOT")
 version = if (!project.hasProperty("release")) {

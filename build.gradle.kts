@@ -7,6 +7,9 @@ plugins {
     signing
 
     id("org.cadixdev.licenser") version "0.6.1"
+
+    idea
+    eclipse
 }
 
 java {

@@ -33,6 +33,7 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.inventory.ItemStack;
 
 public class PlayerClickHeadEvent extends Event {
+
     private static final HandlerList handlers = new HandlerList();
     private final Player player;
     private final CategoryEnum categoryEnum;
@@ -43,7 +44,14 @@ public class PlayerClickHeadEvent extends Event {
     private EconomyEnum economyEnum = EconomyEnum.CURRENCY;
     private boolean isCancelled = false;
 
-    public PlayerClickHeadEvent(Player player, double price, String headID, EconomyEnum economyEnum, ItemStack head, CategoryEnum categoryEnum) {
+    public PlayerClickHeadEvent(
+            Player player,
+            double price,
+            String headID,
+            EconomyEnum economyEnum,
+            ItemStack head,
+            CategoryEnum categoryEnum
+    ) {
         this.player = player;
         this.price = price;
         this.headID = headID;
@@ -136,4 +144,5 @@ public class PlayerClickHeadEvent extends Event {
     public HandlerList getHandlers() {
         return handlers;
     }
+
 }

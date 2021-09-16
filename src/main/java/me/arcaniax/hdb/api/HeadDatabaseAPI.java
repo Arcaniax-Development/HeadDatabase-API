@@ -30,8 +30,8 @@ import me.arcaniax.hdb.object.head.Head;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.ArrayList;	
-import java.util.List;	
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class HeadDatabaseAPI {
@@ -41,7 +41,8 @@ public class HeadDatabaseAPI {
      *
      * @param prefix The prefix to use
      */
-    public void setPrefixID(String prefix) {}
+    public void setPrefixID(String prefix) {
+    }
 
     /**
      * Checks whether a head exists with the given ID

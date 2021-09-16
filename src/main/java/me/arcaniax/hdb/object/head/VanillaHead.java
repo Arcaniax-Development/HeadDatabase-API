@@ -29,14 +29,15 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public class VanillaHead extends Head {
+
     Material material;
     short data = -1;
 
     /**
-     *
      * @return the head from an ItemStack
      */
     public ItemStack getHead() {
         return null;
     }
+
 }

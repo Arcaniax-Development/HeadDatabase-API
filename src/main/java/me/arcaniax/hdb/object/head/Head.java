@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Head {
+
     public String b64;
     public String name;
     public String lore;
@@ -73,4 +74,5 @@ public class Head {
     public ItemStack getHead() {
         return null;
     }
+
 }

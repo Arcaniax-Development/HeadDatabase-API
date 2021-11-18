@@ -23,7 +23,7 @@ configurations.all {
 }
 
 group = "com.arcaniax"
-version = "1.3.1"
+version = "1.3.2-SNAPSHOT"
 
 repositories {
     maven {

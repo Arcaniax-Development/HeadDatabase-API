@@ -1,4 +1,5 @@
 import org.cadixdev.gradle.licenser.LicenseExtension
+import java.net.URI
 
 plugins {
     java
@@ -7,35 +8,24 @@ plugins {
     signing
 
     id("org.cadixdev.licenser") version "0.6.1"
+    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
 
     idea
     eclipse
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(16))
-}
-
-tasks.compileJava.configure {
-    options.release.set(8)
+    toolchain.languageVersion.set(JavaLanguageVersion.of(8))
 }
 
 configurations.all {
-    attributes.attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 16)
+    attributes.attribute(TargetJvmVersion.TARGET_JVM_VERSION_ATTRIBUTE, 8)
 }
 
 group = "com.arcaniax"
-version = "1.3.1"
-
-var versuffix by extra("SNAPSHOT")
-version = if (!project.hasProperty("release")) {
-    String.format("%s-%s", project.version, versuffix)
-} else {
-    String.format(project.version as String)
-}
+version = "1.3.1-SNAPSHOT"
 
 repositories {
-    mavenCentral()
     maven {
         name = "PaperMC"
         url = uri("https://papermc.io/repo/repository/maven-public/")
@@ -43,7 +33,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT")
+    compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT")
 }
 
 configure<LicenseExtension> {
@@ -82,6 +72,9 @@ java {
 
 signing {
     if (!version.toString().endsWith("-SNAPSHOT")) {
+        val signingKey: String? by project
+        val signingPassword: String? by project
+        useInMemoryPgpKeys(signingKey, signingPassword)
         signing.isRequired
         sign(publishing.publications)
     }
@@ -126,29 +119,13 @@ publishing {
             }
         }
     }
+}
 
+nexusPublishing {
     repositories {
-        mavenLocal()
-        val nexusUsername: String? by project
-        val nexusPassword: String? by project
-        if (nexusUsername != null && nexusPassword != null) {
-            maven {
-                val releasesRepositoryUrl =
-                    "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
-                val snapshotRepositoryUrl =
-                    "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-                url = uri(
-                    if (version.toString().endsWith("-SNAPSHOT")) snapshotRepositoryUrl
-                    else releasesRepositoryUrl
-                )
-
-                credentials {
-                    username = nexusUsername
-                    password = nexusPassword
-                }
-            }
-        } else {
-            logger.warn("No nexus repository is added; nexusUsername or nexusPassword is null.")
+        sonatype {
+            nexusUrl.set(URI.create("https://s01.oss.sonatype.org/service/local/"))
+            snapshotRepositoryUrl.set(URI.create("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
         }
     }
 }

@@ -18,7 +18,7 @@ jobs:
       - name: "Clean Build"
         run: "./gradlew clean build"
       - name : "Archive Artifacts"
-        uses : "actions/upload-artifact@v2"
+        uses : "actions/upload-artifact@v3"
         with :
           name : "HeadDatabase-API-SNAPSHOT"
           path : "build/libs/*.jar"

@@ -1,4 +1,4 @@
-import org.cadixdev.gradle.licenser.LicenseExtension
+import com.diffplug.gradle.spotless.SpotlessPlugin
 import java.net.URI
 
 plugins {
@@ -7,7 +7,7 @@ plugins {
     `maven-publish`
     signing
 
-    id("org.cadixdev.licenser") version "0.6.1"
+    id("com.diffplug.spotless") version "6.12.1"
     id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
 
     idea
@@ -36,10 +36,11 @@ dependencies {
     compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT")
 }
 
-configure<LicenseExtension> {
-    header(rootProject.file("HEADER"))
-    include("**/*.java")
-    newLine.set(false)
+spotless {
+    java {
+        licenseHeaderFile(rootProject.file("HEADER"))
+        target("**/*.java")
+    }
 }
 
 tasks {
@@ -61,7 +62,7 @@ tasks {
             "implSpec:a:Implementation Requirements:",
             "implNote:a:Implementation Note:"
         )
-        opt.links("https://papermc.io/javadocs/paper/1.17/")
+        opt.links("https://jd.papermc.io/paper/1.19/")
     }
 }
 

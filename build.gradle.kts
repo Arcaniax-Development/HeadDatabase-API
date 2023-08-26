@@ -15,7 +15,7 @@ plugins {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(8))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
 configurations.all {
@@ -28,12 +28,12 @@ version = "1.3.2-SNAPSHOT"
 repositories {
     maven {
         name = "PaperMC"
-        url = uri("https://papermc.io/repo/repository/maven-public/")
+        url = uri("https://repo.papermc.io/repository/maven-public/")
     }
 }
 
 dependencies {
-    compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
 }
 
 spotless {
@@ -62,7 +62,7 @@ tasks {
             "implSpec:a:Implementation Requirements:",
             "implNote:a:Implementation Note:"
         )
-        opt.links("https://jd.papermc.io/paper/1.19/")
+        opt.links("https://jd.papermc.io/paper/1.21/")
     }
 }
 
@@ -123,7 +123,7 @@ publishing {
 }
 
 nexusPublishing {
-    repositories {
+    this.repositories {
         sonatype {
             nexusUrl.set(URI.create("https://s01.oss.sonatype.org/service/local/"))
             snapshotRepositoryUrl.set(URI.create("https://s01.oss.sonatype.org/content/repositories/snapshots/"))

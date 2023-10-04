@@ -62,7 +62,7 @@ tasks {
             "implSpec:a:Implementation Requirements:",
             "implNote:a:Implementation Note:"
         )
-        opt.links("https://jd.papermc.io/paper/1.19/")
+        opt.links("https://jd.papermc.io/paper/1.20/")
     }
 }
 
@@ -109,8 +109,9 @@ publishing {
 
                 scm {
                     url.set("https://github.com/Arcaniax-Development/HeadDatabase-API")
-                    connection.set("scm:https://Arcaniax-Development@github.com/Arcaniax-Development/HeadDatabase-API.git")
-                    developerConnection.set("scm:git://github.com/Arcaniax-Development/HeadDatabase-API.git")
+                    connection.set("scm:git:https://github.com/Arcaniax-Development/HeadDatabase-API.git")
+                    developerConnection.set("scm:git:git@github.com:Arcaniax-Development/HeadDatabase-API.git")
+                    tag.set("${project.version}")
                 }
 
                 issueManagement {

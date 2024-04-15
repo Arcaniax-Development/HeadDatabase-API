@@ -26,7 +26,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("com.arcaniax:HeadDatabase-API:1.3.1")
+    compileOnly("com.arcaniax:HeadDatabase-API:1.3.2")
 }
 ```
 
@@ -36,7 +36,7 @@ dependencies {
 <dependency>
     <groupId>com.arcaniax</groupId>
     <artifactId>HeadDatabase-API</artifactId>
-    <version>1.3.1</version>
+    <version>1.3.2</version>
     <scope>provided</scope>
 </dependency>
 ```

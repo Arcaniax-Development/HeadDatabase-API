@@ -114,7 +114,7 @@ public class PlayerClickHeadEvent extends Event {
      * @return null
      */
     public ItemStack getHead() {
-        return null;
+        return this.head;
     }
 
     /**

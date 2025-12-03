@@ -9,7 +9,7 @@ plugins {
 
     id("com.diffplug.spotless") version "8.1.0"
     id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
-    id("com.vanniktech.maven.publish") version "0.33.0"
+    id("com.vanniktech.maven.publish") version "0.35.0"
 
     idea
     eclipse

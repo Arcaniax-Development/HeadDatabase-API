@@ -7,7 +7,7 @@ plugins {
     `java-library`
     signing
 
-    id("com.diffplug.spotless") version "8.1.0"
+    id("com.diffplug.spotless") version "8.2.1"
     id("io.github.gradle-nexus.publish-plugin") version "2.0.0"
     id("com.vanniktech.maven.publish") version "0.33.0"
 
